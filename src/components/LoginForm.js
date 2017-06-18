@@ -1,8 +1,9 @@
 
 import React, { Component } from 'react';
-import { Text } from 'react-native';
 import firebase from 'firebase';
-import { Button, Card, CardSection, Input, Spinner } from './common';
+import { Actions } from 'react-native-router-flux';
+import { Button, Card, CardSection, Input, Spinner } from '../common';
+import { Text } from 'react-native';
 
 class LoginForm extends Component {
   state = { email: '', password: '', error: '', loading: false };
@@ -28,6 +29,7 @@ class LoginForm extends Component {
       loading: false,
       error: ''
     });
+    Actions.main();
   }
 
   renderButton() {

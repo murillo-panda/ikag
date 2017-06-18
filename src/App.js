@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 import firebase from 'firebase';
-import Login from './LoginForm';
-import List from './List';
+import Router from './Router';
 
 class App extends Component {
   componentWillMount() {
@@ -19,7 +18,7 @@ class App extends Component {
 
   render() {
     return (
-      <Login/>
+      <Router/>
     );
   }
 }
