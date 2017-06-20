@@ -13,7 +13,7 @@ const RouterComponent = () => {
       <Scene key="main">
         <Scene
           onRight={() => Actions.createFrm()}
-          rightTitle="Add"
+          rightTitle="Agregar"
           key="list"
           component={List}
           title="Listado de Solicitudes"

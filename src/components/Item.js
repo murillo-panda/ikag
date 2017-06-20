@@ -3,13 +3,14 @@ import { Text, View, Image, Linking } from 'react-native';
 import {Card, CardSection, Button} from '../common';
 
 const Item = ({ album }) => {
-  const { title, artist, thumbnail_image, image, url } = album;
+  const { userImage, userFullName, title, description, dateTime, image, url } = album;
   const {
     thumbnailStyle,
     headerContentStyle,
     thumbnailContainerStyle,
     headerTextStyle,
-    imageStyle
+    imageStyle,
+    titleTextStyle
   } = styles;
 
   return (
@@ -18,12 +19,21 @@ const Item = ({ album }) => {
         <View style={thumbnailContainerStyle}>
           <Image
             style={thumbnailStyle}
-            source={{ uri: thumbnail_image }}
+            source={{ uri: userImage }}
           />
         </View>
         <View style={headerContentStyle}>
-          <Text style={headerTextStyle}>{title}</Text>
-          <Text>{artist}</Text>
+          <Text style={headerTextStyle}>{userFullName}</Text>
+          <Text>{dateTime}</Text>
+        </View>
+      </CardSection>
+
+      <CardSection>
+        <View style={thumbnailContainerStyle}>
+        </View>
+        <View style={headerContentStyle}>
+          <Text style={titleTextStyle}>{title}</Text>
+          <Text>{description}</Text>
         </View>
       </CardSection>
 
@@ -36,7 +46,7 @@ const Item = ({ album }) => {
 
       <CardSection>
         <Button onPress={() => Linking.openURL(url)}>
-          Buy Now
+          Mas informacion
         </Button>
       </CardSection>
     </Card>
@@ -49,6 +59,9 @@ const styles = {
     justifyContent: 'space-around'
   },
   headerTextStyle: {
+    fontSize: 18
+  },
+  titleTextStyle: {
     fontSize: 18
   },
   thumbnailStyle: {

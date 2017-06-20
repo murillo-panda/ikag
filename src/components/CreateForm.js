@@ -8,7 +8,6 @@ class CreateForm extends Component {
 
   onButtonPress() {
     const { title, description, photo } = this.props;
-    console.log(`Click Boton ${title}, ${description}, ${photo}`)
 
     const { currentUser } = firebase.auth();
     firebase.database().ref(`/users/${currentUser.uid}/solicitud`)
@@ -23,7 +22,7 @@ class CreateForm extends Component {
       <Card>
         <CardSection>
           <Input
-            label="Titulo"
+            label="Titulo:"
             placeholder="Ingrese su titulo aqui"
             value={this.state.title}
             onChangeText={value => this.setState({ title: value})}
@@ -32,7 +31,7 @@ class CreateForm extends Component {
 
         <CardSection>
           <Input
-            label="Descripcion"
+            label="Descripcion:"
             placeholder="Ej: Instalacion aire acondicionado"
             value={this.state.description}
             onChangeText={value => this.setState({ description: value })}
@@ -41,7 +40,7 @@ class CreateForm extends Component {
 
         <CardSection>
           <Input
-            label="Foto"
+            label="Foto:"
             placeholder="Ej: Instalacion aire acondicionado"
             value={this.state.photo}
             onChangeText={value => this.setState({ photo: value })}
