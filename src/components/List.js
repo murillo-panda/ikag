@@ -22,9 +22,15 @@ class List extends Component {
     firebase.database().ref(`/users/${currentUser.uid}/solicitud`)
     .on('value', snapshot => {
       let result = snapshot.val()
+      //console.log(result);
+      /*[ {{attr1:1,attr2:2},rodo123},
+        {{attr1:1,attr2:2},rodo123},
+        {{attr1:1,attr2:2},rodo123}
+      ]*/
       let employees = _.map(result, (val, uid) => {
         return { ...val, uid };
       });
+      console.log('employees: ', employees);
     });
 
     let temp =

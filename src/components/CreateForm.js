@@ -4,7 +4,7 @@ import { Card, CardSection, Input, Button } from '../common';
 import firebase from 'firebase';
 
 class CreateForm extends Component {
-  state = { title: '', description:'', photo:'' };
+  state = { title: '', description:'', photo:'', photos:[] };
 
   onButtonPress() {
     const { title, description, photo } = this.props;
@@ -17,13 +17,18 @@ class CreateForm extends Component {
       });
   }
 
+  getPhotos(){
+    //console.log('CameraRoll', CameraRoll())
+ }
+
+
   render() {
     return (
       <Card>
         <CardSection>
           <Input
-            label="Titulo:"
-            placeholder="Ingrese su titulo aqui"
+            label="Nombre:"
+            placeholder="Ej: Ferreteria Don Juan"
             value={this.state.title}
             onChangeText={value => this.setState({ title: value})}
           />
@@ -31,8 +36,8 @@ class CreateForm extends Component {
 
         <CardSection>
           <Input
-            label="Descripcion:"
-            placeholder="Ej: Instalacion aire acondicionado"
+            label="Direccion:"
+            placeholder="Ej: Bartolome mitre 4431"
             value={this.state.description}
             onChangeText={value => this.setState({ description: value })}
           />
@@ -40,8 +45,8 @@ class CreateForm extends Component {
 
         <CardSection>
           <Input
-            label="Foto:"
-            placeholder="Ej: Instalacion aire acondicionado"
+            label="Telefono:"
+            placeholder="Ej: 011-2254-4567"
             value={this.state.photo}
             onChangeText={value => this.setState({ photo: value })}
           />
@@ -52,6 +57,7 @@ class CreateForm extends Component {
             Crear Solicitud
           </Button>
         </CardSection>
+
       </Card>
     );
   }

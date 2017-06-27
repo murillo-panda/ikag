@@ -8,6 +8,7 @@ const RouterComponent = () => {
   return (
     <Router sceneStyle={{ paddingTop: 65 }}>
       <Scene key="auth">
+        <Scene key="createFrm" component={CreateForm} title="Crear Solicitud" initial/>
         <Scene key="login" component={LoginForm} title="Iniciar Sesion" />
       </Scene>
       <Scene key="main">
@@ -19,7 +20,6 @@ const RouterComponent = () => {
           title="Listado de Solicitudes"
           initial
         />
-      <Scene key="createFrm" component={CreateForm} title="Crear Solicitud" />
       </Scene>
     </Router>
   );
