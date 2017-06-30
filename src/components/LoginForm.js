@@ -8,14 +8,17 @@ import { Text } from 'react-native';
 class LoginForm extends Component {
   state = { email: '', password: '', error: '', loading: false };
 
-  onButtonPress() {
-    const { email, password } = this.state;
+  onButtonPress = () =>  {
+    Actions.welcomeView();
+
+    /*const { email, password } = this.state;
 
     this.setState({ error: '', loading: true });
 
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(this.onLoginSuccess.bind(this))
     .catch(this.onLoginFail.bind(this))
+    */
   }
 
   onLoginFail() {
@@ -38,7 +41,7 @@ class LoginForm extends Component {
     }
 
     return (
-      <Button onPress={this.onButtonPress.bind(this)}>
+      <Button onPress={this.onButtonPress}>
         Log in
       </Button>
     );
